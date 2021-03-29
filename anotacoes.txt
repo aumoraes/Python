@@ -1,0 +1,53 @@
+python -m venv test-env
+pip install pytest
+pip install requests
+
+variável de ambiente:
+PYTHONENV
+
+pytest:
+ - fixture:
+ > código geral que vai em todos os metodos
+ > ex: iniciar uma classe comum
+ > Pode ser considerado um modulo, por isso o fixture
+ pode importar outros fixture
+ > o pytest procura para um modulo chamado >>> conftest <<<
+ > ex para desabilitar chamadas externas via get
+ @pytest.fixture(autouse=True)
+ def disable_network_calls(monkeypatch):
+    def stunted_get():
+        raise RuntimeError("Network access not allowed during testing!")
+    monkeypatch.setattr(requests, "get", lambda *args, **kwargs: stunted_get())
+
+ 
+ - monkeypath:
+ > mock de modulos e ambiente
+ > usado para chamar sistemas externos
+
+ - Marks: Categorizing Tests:
+ > essa marcação no teste tem algumas funcionalidades, por exemplo, parametrize
+ > podemos criar nosso proprio marcação
+ > pytest.mark.slow, com isso, podemos ignorar ou rodar apenas o teste que demora
+
+ - mark.parametrize:
+ > criar um conjunto de testes baseado em funcoes
+ > executa um looping nos cenários de teste
+
+
+Mocking, Monkey Patching, and Faking Functionality
+
+https://codefellows.github.io/sea-python-401d7/lectures/mock.html
+
+https://www.guru99.com/pytest-tutorial.html
+https://reqres.in/
+
+
+------
+
+pytest
+pytest -v
+pytest -v -o junit_family=xunit1 --junitxml=results/results.xml --cov=src --cov-report=xml:results/coverage.xml --cov-report=html:results/html_report tests/
+
+C:\Users\aumoraes\OneDrive\Documentos\sonar-scanner-46\bin\sonar-scanner.bat "-X" "-Dsonar.projectKey=aumoraes:wallet" "-Dsonar.exclusions=test-env/**/*, tests/unit/conftest.py" "-Dsonar.language=py" "-Dsonar.python.coverage.reportPaths=test-results/results.xml" "-Dsonar.python.xunit.reportPath=test-results/coverage.xml" "-Dsonar.coverage.dtdVerification=false" "-Dsonar.projectName=Wallet" "-Dsonar.sources=src" "-Dsonar.tests=tests" "-Dsonar.verbose=true"
+
+C:\Users\aumoraes\OneDrive\Documentos\sonar-scanner-46\bin\sonar-scanner.bat "-X" "-Dsonar.projectKey=aumoraes:hello-world" "-Dsonar.exclusions=test-env/**/*,src/__pycache__/,tests/unit/__pycache__/" "-Dsonar.language=py" "-Dsonar.python.coverage.reportPaths=results/coverage.xml" "-Dsonar.python.xunit.reportPath=results/results.xml" "-Dsonar.coverage.dtdVerification=false" "-Dsonar.projectName=Hello-World" "-Dsonar.sources=src" "-Dsonar.tests=tests" "-Dsonar.verbose=true"

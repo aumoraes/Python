@@ -1,0 +1,6 @@
+projectKey=aumoraes:hello-world
+serverUrl=http://localhost:9000
+serverVersion=8.2.0.32929
+dashboardUrl=http://localhost:9000/dashboard?id=aumoraes%3Ahello-world
+ceTaskId=AXh1-ibdKZUOAKW7Y3cS
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXh1-ibdKZUOAKW7Y3cS

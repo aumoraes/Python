@@ -1,0 +1,10 @@
+monkey patching
+
+Substituir o compartamento padrão de uma funcionalidade.
+
+Ao fazer o monkey patching de uma funcionalidade, não será executada a funcionalidade dela e sim o mock
+
+----
+
+mocking with magicmock
+

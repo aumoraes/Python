@@ -1,0 +1,24 @@
+SonarQube plugins:
+  - SonarPython 2.8.0.6204 (python)
+Global server settings:
+  - sonar.core.id=243B8A4D-AXhV5UrWrEOB-wAjCLiK
+  - sonar.core.startTime=2021-03-27T22:54:48+0000
+Project server settings:
+Project scanner properties:
+  - sonar.coverage.dtdVerification=false
+  - sonar.exclusions=test-env/**/*,src/__pycache__/,tests/unit/__pycache__/
+  - sonar.host.url=http://localhost:9000
+  - sonar.language=py
+  - sonar.login=******
+  - sonar.projectBaseDir=C:\Users\aumoraes\workspace\python\hello-world
+  - sonar.projectKey=aumoraes:hello-world
+  - sonar.projectName=Hello-World
+  - sonar.python.coverage.reportPaths=results/coverage.xml
+  - sonar.python.xunit.reportPath=results/results.xml
+  - sonar.scanner.app=ScannerCLI
+  - sonar.scanner.appVersion=4.6.0.2311
+  - sonar.sourceEncoding=windows-1252
+  - sonar.sources=src
+  - sonar.tests=tests
+  - sonar.verbose=true
+  - sonar.working.directory=C:\Users\aumoraes\workspace\python\hello-world\.scannerwork
